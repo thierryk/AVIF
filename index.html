@@ -2,9 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="description" content="Checking LightHouse results related to image density/file type." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AVIF and LightHouse</title>
 </head>
 <body>
-<h1>AVIF and LighHouse</h1>
+<h1>Checking LighHouse report with AVIF files</h1>
+<p>Image dimensions:</p>
+<ul>
+    <li>1x = 100px x 100px image</li>
+    <li>2x = 200px x 200px image</li>
+    <li>3x = 300px x 300px image</li>
+</ul>
+<h2>WEBP source comes first</h2>
+<picture>
+    <source srcset="webp-1x.webp, webp-2x.webp 2x, webp-3x.webp 3x" type="image/webp" />
+    <source srcset="avif-1x.avif, avif-2x.avif 2x, avif-3x.avif 3x" type="image/avif" />
+    <img decoding="async" alt="Test Image" src="png-1x.png" width="100" height="100" />
+</picture>
+<h2>AVIF source comes first</h2>
+<picture>
+    <source srcset="avif-1x.avif, avif-2x.avif 2x, avif-3x.avif 3x" type="image/avif" />
+    <source srcset="webp-1x.webp, webp-2x.webp 2x, webp-3x.webp 3x" type="image/webp" />
+    <img decoding="async" alt="Test Image" src="png-1x.png" width="100" height="100" />
+</picture>
 </body>
 </html>
